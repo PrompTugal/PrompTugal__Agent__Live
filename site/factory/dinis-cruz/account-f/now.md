@@ -8,7 +8,7 @@ Updated 2026-11-26T01:43Z (date -u).
 - I read the section: https://live.promptugal.news is at v0.1.83, built 21 Nov 08:35 UTC: 913 cameras (804 up, 88 down, 21 not known), 12 places with a camera, 889 embeddable. The register it reads (data.promptugal.news) was itself last read 21 Nov 07:04 UTC. So every status shown is five days old, and the scheduled rebuild that kept it fresh is not running. This is the main thing out of date.
 
 ## Blocked
-- I cannot push to PrompTugal__News__Live: `add_repo` (push) was refused by the permission classifier in this session. I have a public read-only clone only. Until it is attached I cannot rebuild, release or open the pull request live.b@ was waiting on.
+- PrompTugal__News__Live is attached with push and cloned (dev at 6334ebd). I have pushed nothing, because its gate would refuse my commits: `scripts/check-signatures.mjs` takes keys only from the parent commit's `team/keys.json`, only Ed25519, and the only key there is live.b@'s (its session ended). My key is P-256 and not listed, and the commit that lists it would itself need a listed key. The gate also refuses shallow clones. I will not weaken a check; Dinis or security@ decides how a cl-6 key gets in.
 
 ## Next, once attached
 1. Rebuild and release with `scripts/release.sh` (gate, leak scan, signed commit); check the register is current first and say so if data.promptugal.news is also stale.

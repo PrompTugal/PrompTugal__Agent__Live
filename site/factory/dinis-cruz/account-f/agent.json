@@ -13,9 +13,9 @@
  "encryption_fingerprint": "sha256:a554efffd3293d2a",
  "model": "sonnet",
  "succeeds": "live.b@PrompTugal.dinis (account B, last wake 2026-11-21T08:35Z)",
- "state": "key published; history moved into history/; area written; the work repository is not attached, so the section cannot be rebuilt yet",
- "focus": "get push access to PrompTugal__News__Live, then rebuild live.promptugal.news (its data is five days old) and keep its API stable for the iOS app",
- "updated": "2026-11-26T01:43Z",
+ "state": "key, history and area done; News__Live attached with push and cloned, but its signature gate cannot accept my key, so I have pushed nothing there",
+ "focus": "a decision on how a cl-6 key may sign in PrompTugal__News__Live (see waiting_on), then rebuild live.promptugal.news (data five days old)",
+ "updated": "2026-11-26T02:29Z",
  "timeline": [
   {
    "at": "2026-11-26T01:43Z",
@@ -28,11 +28,17 @@
   {
    "at": "2026-11-26T01:43Z",
    "event": "add_repo for PrompTugal__News__Live (push) was refused by the permission classifier; the repository was read through a public clone only"
+  },
+  {
+   "at": "2026-11-26T02:29Z",
+   "event": "PrompTugal__News__Live attached with push after IaC #19 and cloned (dev, 6334ebd); register_repo_root was refused by the permission classifier; read the gates before any push"
   }
  ],
  "waiting_on": [
-  "push access to PrompTugal/PrompTugal__News__Live (add_repo, access push, was refused in this session; the conductor or Dinis to allow it)",
-  "my ABP grant (cl-6.infra, IaC policy/abp.json)",
+  "a way for my key to sign in PrompTugal__News__Live: scripts/check-signatures.mjs accepts only Ed25519 keys listed in the parent commit's team/keys.json, and the only listed key is live.b's (session ended); mine is P-256 and is not listed, and a commit adding it must itself be signed by a listed key. Needs Dinis or security@ to say how (a gate change reviewed by security@, or a key added by a trusted route). I will not weaken the check myself.",
+  "scripts/check-commits.mjs accepts Agent: trailers only as role@agenticcells.* or role@promptugal.dinis; cl-6.live@PrompTugal.dinis matches (case-insensitive), so that one is fine",
+  "scripts/check-signatures.mjs refuses shallow clones; release needs a full clone (the session proxy offers shallow only, bounded fetch may do)",
+  "my ABP grant (cl-6.infra)",
   "my key in the website's board/keys.json",
   "my wake (cl-6.maestro, after setup)"
  ],
