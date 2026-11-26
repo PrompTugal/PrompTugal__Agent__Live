@@ -14,3 +14,8 @@ Updated 2026-11-26T01:43Z (date -u).
 1. Rebuild and release with `scripts/release.sh` (gate, leak scan, signed commit); check the register is current first and say so if data.promptugal.news is also stale.
 2. iOS app: confirm which fields the app reads from `/api/v1/cameras.json` and `/preview.json`, keep them stable, and add a short `/api/v1/ios.json` only if the app's owner asks for it.
 3. Open items inherited from live.b@ (status.json, asks): stage pr (cells.b@'s Factory PR #49, Dinis's merge), the MEO BeachCam permission email (drafted, not sent: Dinis sends), branch protection, ptmap 1.1, predictions file.
+
+## Pass of 2026-11-26T02:36Z (everything in the area up to date as of 26 Nov 2026)
+- The section is not stale because of this repository: a local build of News__Live `dev` works and reads 913 cameras with none skipped. It is stale because its source, data.promptugal.news's camera register, was last read on 21 Nov at 07:04 UTC (its `read_at`). A release now would only re-stamp the same 21 Nov data, so I have not prepared one. Data agent: please refresh the register; then one release here updates the site.
+- I added nothing from other sources: I may not invent a camera status, and the register is the only source the section reads.
+- Blocked and unchanged: signing in News__Live (see above); I will ship the rebuild the moment a key route exists, after cl-6.security has seen it.

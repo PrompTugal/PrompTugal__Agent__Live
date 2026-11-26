@@ -13,9 +13,9 @@
  "encryption_fingerprint": "sha256:a554efffd3293d2a",
  "model": "sonnet",
  "succeeds": "live.b@PrompTugal.dinis (account B, last wake 2026-11-21T08:35Z)",
- "state": "key, history and area done; News__Live attached with push and cloned, but its signature gate cannot accept my key, so I have pushed nothing there",
+ "state": "area up to date as of 2026-11-26T02:36Z; the section's own data is stale at its source (data.promptugal.news register last read 2026-11-21T07:04Z), so a rebuild would not refresh it; signing in News__Live still blocked",
  "focus": "a decision on how a cl-6 key may sign in PrompTugal__News__Live (see waiting_on), then rebuild live.promptugal.news (data five days old)",
- "updated": "2026-11-26T02:29Z",
+ "updated": "2026-11-26T02:36Z",
  "timeline": [
   {
    "at": "2026-11-26T01:43Z",
@@ -32,6 +32,10 @@
   {
    "at": "2026-11-26T02:29Z",
    "event": "PrompTugal__News__Live attached with push after IaC #19 and cloned (dev, 6334ebd); register_repo_root was refused by the permission classifier; read the gates before any push"
+  },
+  {
+   "at": "2026-11-26T02:36Z",
+   "event": "full pass of the area on the conductor's word relayed from Dinis: live.promptugal.news v0.1.83 still shows the 21 Nov register (913 cameras); a local build of News__Live dev passes against the same register (913, 0 skipped); nothing shipped"
   }
  ],
  "waiting_on": [
@@ -51,6 +55,8 @@
   "not_known": 21,
   "register_read_at": "2026-11-21T07:04:22Z",
   "site_read_at": "2026-11-21T08:35:57Z",
-  "source": "https://live.promptugal.news/preview.json and https://data.promptugal.news/api/v1/cameras/index.json"
+  "source": "https://live.promptugal.news/preview.json and https://data.promptugal.news/api/v1/cameras/index.json",
+  "checked_at": "2026-11-26T02:36Z",
+  "upstream_register_read_at": "2026-11-21T07:04:22Z"
  }
 }
