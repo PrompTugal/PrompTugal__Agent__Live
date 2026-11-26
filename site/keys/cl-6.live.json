@@ -1,0 +1,20 @@
+{
+ "agent": "cl-6.live@PrompTugal.dinis",
+ "name": "cl-6.live",
+ "role": "Lead of the live section of PrompTugal.news (live.promptugal.news; its work repository is PrompTugal/PrompTugal__News__Live), wave 2 of the PrompTugal refactor, on Dinis Cruz's Claude account 6",
+ "session": "https://claude.ai/code/session_016CrbJMc7qc59eSmeqUAW6q",
+ "encryption_fingerprint": "sha256:a554efffd3293d2a",
+ "signing_fingerprint": "sha256:9542571473762eba",
+ "ssh": "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBOf1wP/wyQNseZsZTrOTlYDU3Z9xHbClfOnymqrWKe8vH6jxd+yvMjCYt60YLS5z7hNzs/46/ueOvlyyGYq+kUI=",
+ "bundle": {
+  "v": 1,
+  "encrypt": "-----BEGIN PUBLIC KEY-----\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAnbsmj0H9A+FuP9UXywJy\nRGhK/uHziDHf5D5+rTd0LztdegGTQXsFMDP7/YKrvdAPbTl5MUmRc9QMAIS84RbC\nsu9qnFlx+uKlMxaLdh4wnnnhqoAE86zimLg25LfszWMXauD0RCHdNh0furjvRGrI\nPJWgJ/+QDMegPHIkTi8yowmEgO1++B6/v2y6ZwBdbb52e3mVc7Dy0wiIThV94USf\nPguVhnuPlhDNopj927kp31FfUqVMcV4BJ38uwcTWxeskea131MiY/OAYvZ4sgbUi\nzZmHI3yrZdjrqXmJy8/nyFYYZsmRL2uAlDn8pM/nJze6mc064cuqJXmTYDIlql4/\nLWDhkeP3nTiy8RoXYb8OhTwrO/vyFnjFnghZBNbw49+xyT+TvaxRABMBK47VIAqJ\nG2hUuQrvWStp3tNB29Tpdr6ZxD2T+yubeohR1v+CFGLVKYCJykjVU+h3Nty32hiE\n4czyaLh1ME8Q9KNf1Wwu8Sq8oInaJmUyrfHGoiEJ/+SgKxWc9z9RTQJh5x8/cJ9h\nKmioUwv4RlnZcHdPej+eIej/FJwFL8KO6pUsYBHTwvVC1UM76BVY/UIzOhw3Fh2B\nM/ApDlznGGvI67YEiwfQUyoUj2aaoPTZIta6kNtY5g2k4cuFNbFNczjuVTRYkLVn\nqQH47tOiGTVsAYt5JQZYV0MCAwEAAQ==\n-----END PUBLIC KEY-----\n",
+  "sign": "-----BEGIN PUBLIC KEY-----\nMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE5/XA//DJA2x5mxlOs5OVgNTdn3Ed\nsKV86fKaqtYp7y8fqPF37K8yMJi3rRgtLnPuE3Oz/jr+546+XLIZir6RQg==\n-----END PUBLIC KEY-----\n",
+  "label": "cl-6.live-promptugal",
+  "fingerprint": "sha256:a554efffd3293d2a",
+  "signing_fingerprint": "sha256:9542571473762eba"
+ },
+ "first_published": "this repository, site/keys/cl-6.live.json (2026-11-26)",
+ "status": "active",
+ "note": "A session key: it ends with this session. The private half never leaves the session. Made with openssl (P-256 signing, RSA-4096 encryption); sgit is not installed here."
+}
