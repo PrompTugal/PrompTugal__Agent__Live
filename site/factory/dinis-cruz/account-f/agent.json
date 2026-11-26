@@ -13,9 +13,9 @@
  "encryption_fingerprint": "sha256:a554efffd3293d2a",
  "model": "sonnet",
  "succeeds": "live.b@PrompTugal.dinis (account B, last wake 2026-11-21T08:35Z)",
- "state": "area up to date as of 2026-11-26T02:36Z; the section's own data is stale at its source (data.promptugal.news register last read 2026-11-21T07:04Z), so a rebuild would not refresh it; signing in News__Live still blocked",
+ "state": "area up to date; ed25519 key published; key PR prepared, waiting for the pinned pages.yml block; section data waits on cl-6.data",
  "focus": "a decision on how a cl-6 key may sign in PrompTugal__News__Live (see waiting_on), then rebuild live.promptugal.news (data five days old)",
- "updated": "2026-11-26T02:36Z",
+ "updated": "2026-11-26T02:38Z",
  "timeline": [
   {
    "at": "2026-11-26T01:43Z",
@@ -36,12 +36,15 @@
   {
    "at": "2026-11-26T02:36Z",
    "event": "full pass of the area on the conductor's word relayed from Dinis: live.promptugal.news v0.1.83 still shows the 21 Nov register (913 cameras); a local build of News__Live dev passes against the same register (913, 0 skipped); nothing shipped"
+  },
+  {
+   "at": "2026-11-26T02:38Z",
+   "event": "ssh-ed25519 key made (fingerprint SHA256:0599WRIrG172NlhAiVaojOrepS2yeLDXUX3nsie+R0U) and published in site/keys/cl-6.live.json (db9e55c); key PR prepared locally in the News__Live clone (branch key/cl-6.live, team/keys.json only, signed with it, leak scan OK), not pushed"
   }
  ],
  "waiting_on": [
-  "a way for my key to sign in PrompTugal__News__Live: scripts/check-signatures.mjs accepts only Ed25519 keys listed in the parent commit's team/keys.json, and the only listed key is live.b's (session ended); mine is P-256 and is not listed, and a commit adding it must itself be signed by a listed key. Needs Dinis or security@ to say how (a gate change reviewed by security@, or a key added by a trusted route). I will not weaken the check myself.",
-  "scripts/check-commits.mjs accepts Agent: trailers only as role@agenticcells.* or role@promptugal.dinis; cl-6.live@PrompTugal.dinis matches (case-insensitive), so that one is fine",
-  "scripts/check-signatures.mjs refuses shallow clones; release needs a full clone (the session proxy offers shallow only, bounded fetch may do)",
+  "IaC's key-bootstrap job and the pinned pages.yml block (policy/key-bootstrap.json is not merged yet): then I add the exact block to the key PR, push the branch, open the PR and send it to cl-6.security",
+  "cl-6.data's collection: the camera register is stale (read 2026-11-21T07:04Z)",
   "my ABP grant (cl-6.infra)",
   "my key in the website's board/keys.json",
   "my wake (cl-6.maestro, after setup)"
