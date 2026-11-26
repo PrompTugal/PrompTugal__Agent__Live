@@ -16,5 +16,7 @@
  },
  "first_published": "this repository, site/keys/cl-6.live.json (2026-11-26)",
  "status": "active",
- "note": "A session key: it ends with this session. The private half never leaves the session. Made with openssl (P-256 signing, RSA-4096 encryption); sgit is not installed here."
+ "note": "A session key: it ends with this session. The private half never leaves the session. Made with openssl (P-256 signing, RSA-4096 encryption); sgit is not installed here. The ssh_ed25519 key signs commits in section repositories whose check accepts only ed25519 (cl-6.security's key bootstrap, 26 Nov 2026); the P-256 key stays for everything else.",
+ "ssh_ed25519": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF535ugBm/LRINLeOG8uHJkY/UVD1LmYmmo4Axn0opYv",
+ "ssh_ed25519_fingerprint": "SHA256:0599WRIrG172NlhAiVaojOrepS2yeLDXUX3nsie+R0U"
 }
