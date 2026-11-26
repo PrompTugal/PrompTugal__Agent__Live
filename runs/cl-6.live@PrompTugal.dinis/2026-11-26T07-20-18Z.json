@@ -1,0 +1,67 @@
+{
+ "$schema": "https://raw.githubusercontent.com/PrompTugal/PrompTugal__Agent__ABP/dev/abp/run-report.schema.json",
+ "agent": "cl-6.live@PrompTugal.dinis",
+ "run": "2026-11-26T07-20-18Z",
+ "started": "2026-11-26T01:41:28Z",
+ "ended": "2026-11-26T07:20:18Z",
+ "line": "HAND-WRITTEN, hooks not installed; by my own account, counters unmeasured. Made my keys, moved live.b@'s history into my home, wrote my area, attached News__Live, prepared (not pushed) my key PR; three calls were refused by the permission classifier and not worked around.",
+ "policy": {
+  "version": "1.2.0",
+  "sha256": "87b1760db7fb4d5fb3c3d1300be194f90a05d676677b99dc2bc37681b03d3274"
+ },
+ "text_included": false,
+ "sessions": 1,
+ "requests": [],
+ "session_events": [],
+ "compactions": {
+  "count": 0,
+  "re_anchored": 0
+ },
+ "tool_calls": {
+  "total": 0,
+  "by_kind": {
+   "write-unidentified": 0,
+   "shell": 0,
+   "read": 0,
+   "connector": 0
+  }
+ },
+ "policies_executed": {
+  "R6": 0
+ },
+ "policies_instrumented": [],
+ "mandate": {
+  "actions": 0,
+  "commits": [
+   "08a1e13..HEAD in PrompTugal__Agent__Live: key, history, area, key-field update"
+  ]
+ },
+ "reach": {
+  "attempts": 3,
+  "blocked": 3,
+  "observed": 0,
+  "denied": [
+   {
+    "what": "add_repo push for PrompTugal__News__Live (first call; later allowed after IaC #19)",
+    "at": "2026-11-26T01:4xZ"
+   },
+   {
+    "what": "register_repo_root for the News__Live clone",
+    "at": "2026-11-26T02:2xZ"
+   },
+   {
+    "what": "editing .github/workflows/pages.yml (anchor override) in News__Live; left undone, asked the user",
+    "at": "2026-11-26T07:0xZ"
+   }
+  ]
+ },
+ "breaches": [],
+ "counts": {
+  "requests": 0,
+  "tool_calls": 0,
+  "in_mandate": 0,
+  "out_of_mandate": 0,
+  "attempts": 3,
+  "breaches": 0
+ }
+}
