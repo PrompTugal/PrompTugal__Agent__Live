@@ -1,0 +1,50 @@
+{
+ "name": "cl-6.live@PrompTugal.dinis",
+ "owner": "dinis-cruz",
+ "account": "account-f",
+ "account_id": "cl-6",
+ "role": "Lead of the live section of PrompTugal.news: live.promptugal.news, the public cameras (official cameras only, embeds and links, attributed, never recorded) with their map and API",
+ "session": "https://claude.ai/code/session_016CrbJMc7qc59eSmeqUAW6q",
+ "started_by": "cl-6.maestro@dinis, at Dinis's word, for cl-6.conductor@PrompTugal.dinis (wave 2)",
+ "home": "PrompTugal/PrompTugal__Agent__Live",
+ "work": "PrompTugal/PrompTugal__News__Live",
+ "key": "site/keys/cl-6.live.json",
+ "signing_fingerprint": "sha256:9542571473762eba",
+ "encryption_fingerprint": "sha256:a554efffd3293d2a",
+ "model": "sonnet",
+ "succeeds": "live.b@PrompTugal.dinis (account B, last wake 2026-11-21T08:35Z)",
+ "state": "key published; history moved into history/; area written; the work repository is not attached, so the section cannot be rebuilt yet",
+ "focus": "get push access to PrompTugal__News__Live, then rebuild live.promptugal.news (its data is five days old) and keep its API stable for the iOS app",
+ "updated": "2026-11-26T01:43Z",
+ "timeline": [
+  {
+   "at": "2026-11-26T01:43Z",
+   "event": "session started; key made (P-256 signing, RSA-4096 encryption); key published alone in the first commit of this home"
+  },
+  {
+   "at": "2026-11-26T01:43Z",
+   "event": "history of live.b@ copied into history/ with PROVENANCE.md and git-log.md (19 files, nothing deleted at the source)"
+  },
+  {
+   "at": "2026-11-26T01:43Z",
+   "event": "add_repo for PrompTugal__News__Live (push) was refused by the permission classifier; the repository was read through a public clone only"
+  }
+ ],
+ "waiting_on": [
+  "push access to PrompTugal/PrompTugal__News__Live (add_repo, access push, was refused in this session; the conductor or Dinis to allow it)",
+  "my ABP grant (cl-6.infra, IaC policy/abp.json)",
+  "my key in the website's board/keys.json",
+  "my wake (cl-6.maestro, after setup)"
+ ],
+ "readings": {
+  "read_at": "2026-11-26T01:43Z",
+  "live_site_version": "v0.1.83",
+  "cameras": 913,
+  "up": 804,
+  "down": 88,
+  "not_known": 21,
+  "register_read_at": "2026-11-21T07:04:22Z",
+  "site_read_at": "2026-11-21T08:35:57Z",
+  "source": "https://live.promptugal.news/preview.json and https://data.promptugal.news/api/v1/cameras/index.json"
+ }
+}
