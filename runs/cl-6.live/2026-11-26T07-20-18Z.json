@@ -31,9 +31,10 @@
  },
  "policies_instrumented": [],
  "mandate": {
-  "actions": 0,
+  "actions": 1,
   "commits": [
-   "08a1e13..HEAD in PrompTugal__Agent__Live: key, history, area, key-field update"
+   "08a1e13..HEAD in PrompTugal__Agent__Live: key, history, area, key-field update",
+   "PrompTugal__News__Live key/cl-6.live a7cb022 pushed 2026-11-27T07:26Z: team/keys.json only, signed with my ed25519 key, no force; PR not opened (waits for the conductor's word, IaC #34 to #36)"
   ]
  },
  "reach": {
