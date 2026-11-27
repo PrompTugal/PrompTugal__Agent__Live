@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+# Run every gate, then rebase on dev and push. Stops at the first failure. Never pipe a gate.
+set -euo pipefail
+cd "$(dirname "$0")/.."
+# Refuse during a hold (finding 3), with uncommitted changes (finding 4: the gates must check what is
+# pushed), and check every commit's Agent: trailer before the push, while it can still be amended (finding 5).
+[ -e board/HOLD.md ] && { echo "board/HOLD.md exists: no release while it does" >&2; exit 1; }
+[ -z "$(git status --porcelain)" ] || { echo "uncommitted changes: commit or stash them first" >&2; exit 1; }
+git fetch -q origin dev
+node scripts/build.mjs
+node scripts/validate.mjs
+node tests/generate.test.mjs
+node tests/leak-scan.test.mjs
+node scripts/leak-scan.mjs
+node scripts/check-commits.mjs origin/dev HEAD
+# Signed commits (Dinis, 19 Nov 2026): every commit after the pinned base signed with a key in its parent's team/keys.json.
+node tests/check-signatures.test.mjs >/dev/null
+WEBFLOW_KEYS_FROM=origin/dev node scripts/check-signatures.mjs '' HEAD
+# Dev-gate flow, FINAL recipe (cl-6.conductor, agreed by cl-6.infra and cl-6.security; IaC #34, #35). Never push dev or main,
+# never force. Build and sign on top of origin/dev, push work/cl-6.live with a plain push, poll for dev and for the gate's fail tag.
+AGENT=cl-6.live
+WORK="work/$AGENT"
+SESSION=${CLAUDE_SESSION_URL:?set CLAUDE_SESSION_URL}
+for round in 1 2 3; do
+  git fetch -q origin
+  # every existing gate again after any merge
+  node scripts/build.mjs >/dev/null
+  node scripts/validate.mjs >/dev/null
+  node scripts/leak-scan.mjs >/dev/null
+  node scripts/check-commits.mjs origin/dev HEAD >/dev/null
+  WEBFLOW_KEYS_FROM=origin/dev node scripts/check-signatures.mjs origin/dev HEAD >/dev/null
+  SHA=$(git rev-parse HEAD)
+  if ! git push -q origin "HEAD:refs/heads/$WORK" 2>/tmp/push.err; then
+    # step 4: only a non-fast-forward refusal means something else moved dev; merge origin/dev (signed) and go round again
+    grep -q -i -E 'non-fast-forward|fetch first|rejected' /tmp/push.err || { cat /tmp/push.err >&2; exit 1; }
+    git merge --no-edit -q -m "$AGENT@PrompTugal.dinis: merge dev
+
+Agent: $AGENT@PrompTugal.dinis
+Claude-Session: $SESSION" origin/dev
+    continue
+  fi
+  # step 3: every 90 seconds for about 20 minutes
+  for check in $(seq 1 13); do
+    sleep 90
+    [ "$(git ls-remote origin refs/heads/dev | cut -f1)" = "$SHA" ] && { echo "released ${SHA:0:7} to dev"; exit 0; }
+    if git ls-remote --tags origin "gate/$AGENT/*" | grep -q "refs/tags/gate/$AGENT/${SHA:0:12}-fail\$"; then
+      echo "the gate refused ${SHA:0:12}: undo with a signed revert, never rewrite; stop and report" >&2; exit 1
+    fi
+  done
+  echo "dev did not reach ${SHA:0:12} within 20 minutes: stop and report" >&2; exit 1
+done
+echo "release not confirmed after 3 rounds" >&2; exit 1
